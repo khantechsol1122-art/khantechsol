@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khan Tech Sol - Innovative Software for a Better Business</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0B3D7A;
+            --primary-dark: #072852;
+            --accent: #FF7A00;
+            --accent-hover: #e06900;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,122,0,0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Header & Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 61, 122, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: var(--white);
+            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #E2E8F0;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(11,61,122,0.1);
+            border-top-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(11, 61, 122, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #EDF2F7;
+            padding-top: 20px;
+        }
+
+        .price-tag {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .service-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .service-btn:hover {
+            background: var(--accent);
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--bg-light);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+        }
+
+        .why-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Portfolio / Live Example */
+        .portfolio {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .portfolio-box {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .portfolio-content {
+            padding: 50px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .features-list i {
+            color: #10B981;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .pricing-table-container {
+            overflow-x: auto;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .pricing-table th, .pricing-table td {
+            padding: 20px 25px;
+            text-align: left;
+            border-bottom: 1px solid #EDF2F7;
+        }
+
+        .pricing-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .pricing-table tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        .badge {
+            background: var(--accent);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            font-size: 20px;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        .info-item h4 {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .info-item p, .info-item a {
+            color: var(--text-light);
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11,61,122,0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #94A3B8;
+            font-size: 15px;
+        }
+
+        footer span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .portfolio-box, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--primary);
+                flex-direction: column;
+                justify-content: center;
+                gap: 25px;
+                transition: 0.4s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-screwdriver-wrench"></i> Khan Tech <span>Sol</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#why-us" class="nav-link">Why Us</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="https://wa.me/923034738592" target="_blank" class="btn btn-primary" style="padding: 8px 18px; font-size: 14px;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Software & Mobile Apps for <span>Every Business</span></h1>
+                <p>Pharmacy, Stock, Inventory, Ledger, POS, Websites & Custom Apps - Har Qisam Ka Software</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/923034738592?text=Hi%20Khan%20Tech%20Sol,%20I%20want%20a%20FREE%20Demo%20of%20your%20software." target="_blank" class="btn btn-primary">
+                        <i class="fa-brands fa-whatsapp"></i> Get FREE Demo on WhatsApp
+                    </a>
+                    <a href="#services" class="btn btn-outline">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Professional Services</h2>
+                <p>Tailored software solutions designed to automate your business operations and maximize your profit.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-pills"></i></div>
+                        <h3>Pharmacy Management System</h3>
+                        <p>POS Billing, Stock, Expiry Alert, Ledger & Reports</p>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price-tag">Rs. 6,999</span>
+                        <a href="https://wa.me/923034738592?text=I%20am%20interested%20in%20Pharmacy%20Management%20System%20(Rs.%206,999)" target="_blank" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <h3>Stock Register App (Android APK)</h3>
+                        <p>Stock, Ledger, Receivable/Payable & Profit Reports on Mobile</p>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price-tag">Rs. 4,999</span>
+                        <a href="https://wa.me/923034738592?text=I%20am%20interested%20in%20Stock%20Register%20App%20(Rs.%204,999)" target="_blank" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-cash-register"></i></div>
+                        <h3>Inventory, Ledger & POS System</h3>
+                        <p>For Shop, Cafe, Restaurant, Supermarket</p>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price-tag">Rs. 6,999</span>
+                        <a href="https://wa.me/923034738592?text=I%20am%20interested%20in%20Inventory,%20Ledger%20&%20POS%20System%20(Rs.%206,999)" target="_blank" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3>Custom Website Development</h3>
+                        <p>Business Website, E-Commerce, School, Hospital, Hotel</p>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price-tag">Rs. 9,999</span>
+                        <a href="https://wa.me/923034738592?text=I%20am%20interested%20in%20Custom%20Website%20Development%20(Rs.%209,999)" target="_blank" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Custom Software / Mobile App</h3>
+                        <p>Any type of software or mobile app tailored to your exact needs</p>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price-tag">Rs. 14,999</span>
+                        <a href="https://wa.me/923034738592?text=I%20am%20interested%20in%20Custom%20Software%20/%20Mobile%20App%20(Rs.%2014,999)" target="_blank" class="service-btn">Order Now</a>
+                    </div>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h3>Support & Training</h3>
+                        <p>Free Training, Backup & Complete Technical Support after setup</p>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price-tag" style="font-size: 16px; color: #10B981;">Included Free</span>
+                        <a href="https://wa.me/923034738592?text=I%20want%20to%20know%20more%20about%20Support%20&%20Training" target="_blank" class="service-btn">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Khan Tech Sol?</h2>
+                <p>We deliver reliability, efficiency, and full ownership for your business software.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-tag"></i></div>
+                    <h3>One-time Price</h3>
+                    <p>No hidden monthly or yearly subscription fees. Pay once and own your system.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-wifi-slash"></i></div>
+                    <h3>Offline Working</h3>
+                    <p>Works smoothly even without active internet connection keeping your data local and secure.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-face-smile"></i></div>
+                    <h3>Easy to Use</h3>
+                    <p>Simple and clean user interface designed so anyone can learn it within minutes.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3>Free Training</h3>
+                    <p>Complete training for you and your staff until you are fully comfortable using the system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Software Example</h2>
+                <p>Explore our flagship enterprise solution deployed successfully for medical stores.</p>
+            </div>
+            <div class="portfolio-box">
+                <div class="portfolio-content">
+                    <h3>Khan Medical Management System</h3>
+                    <p>A robust offline desktop and cloud-ready platform currently managing over 510 medicines and 51,880 stock units with peak performance.</p>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check-circle"></i> Point of Sale (POS) Billing</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Batch & Expiry Management</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Low Stock & Expiry Alerts</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Purchases & Sales Return tracking</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Customers & Supplier Khata Ledgers</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Daily, Monthly Reports & Auto Backup</li>
+                    </ul>
+                    <a href="https://wa.me/923034738592?text=I%20want%20to%20see%20a%20live%20demo%20of%20Khan%20Medical%20Management%20System." target="_blank" class="btn btn-primary">
+                        <i class="fa-brands fa-whatsapp"></i> Request Live Demo
+                    </a>
+                </div>
+                <div class="portfolio-img">
+                    <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.3);">
+                        <i class="fa-solid fa-laptop-medical" style="font-size: 64px; margin-bottom: 15px; color: var(--accent);"></i>
+                        <h4 style="font-size: 20px; margin-bottom: 10px;">Enterprise Grade Security</h4>
+                        <p style="font-size: 14px; color: #CBD5E1;">Optimized SQLite Database with Write-Ahead Logging (WAL) mode for zero data loss.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transparent Pricing Plans</h2>
+                <p>Choose the right package for your business with our special introductory launch offers.</p>
+            </div>
+            <div class="pricing-table-container">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Service / Package</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pharmacy Management System</strong> <span class="badge">Introductory Offer</span></td>
+                            <td>POS Billing, Stock, Expiry Alert, Ledger & Reports</td>
+                            <td><strong>Rs. 6,999</strong></td>
+                            <td><a href="https://wa.me/923034738592?text=I%20want%20to%20buy%20Pharmacy%20Management%20System%20at%20Rs.%206,999" target="_blank" class="service-btn">Buy Now</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stock Register App (Android APK)</strong> <span class="badge">Introductory Offer</span></td>
+                            <td>Stock, Ledger, Receivable/Payable & Profit Reports on Mobile</td>
+                            <td><strong>Rs. 4,999</strong></td>
+                            <td><a href="https://wa.me/923034738592?text=I%20want%20to%20buy%20Stock%20Register%20App%20at%20Rs.%204,999" target="_blank" class="service-btn">Buy Now</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inventory, Ledger & POS System</strong> <span class="badge">Introductory Offer</span></td>
+                            <td>For Shop, Cafe, Restaurant, Supermarket</td>
+                            <td><strong>Rs. 6,999</strong></td>
+                            <td><a href="https://wa.me/923034738592?text=I%20want%20to%20buy%20Inventory,%20Ledger%20&%20POS%20System%20at%20Rs.%206,999" target="_blank" class="service-btn">Buy Now</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Custom Website Development</strong> <span class="badge">Introductory Offer</span></td>
+                            <td>Business Website, E-Commerce, School, Hospital, Hotel</td>
+                            <td><strong>Rs. 9,999</strong></td>
+                            <td><a href="https://wa.me/923034738592?text=I%20want%20to%20buy%20Custom%20Website%20Development%20at%20Rs.%209,999" target="_blank" class="service-btn">Buy Now</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Custom Software / Mobile App</strong></td>
+                            <td>Any type of software or mobile app tailored to your needs</td>
+                            <td><strong>Rs. 14,999</strong></td>
+                            <td><a href="https://wa.me/923034738592?text=I%20want%20to%20discuss%20Custom%20Software%20/%%20Mobile%20App%20at%20Rs.%2014,999" target="_blank" class="service-btn">Discuss</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Getting started with Khan Tech Sol is fast, easy, and hassle-free.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Message on WhatsApp</h3>
+                    <p>Reach out to us directly via WhatsApp at 0303-4738592 with your requirements.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>FREE Live Demo</h3>
+                    <p>Experience a complete live demonstration of the software tailored to your business.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Setup & Customization</h3>
+                    <p>We configure the system with your exact shop name, logo, and initial inventory data.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Training & Support</h3>
+                    <p>Get complete hands-on staff training and ongoing technical backup support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch With Us</h2>
+                <p>Have questions or ready to launch your business software? Contact us today!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>We are ready to assist you in modernizing your business with high-performance software solutions.</p>
+                    
+                    <div class="info-item">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <div>
+                            <h4>Chief Executive Officer</h4>
+                            <p>Wajid Ali Khan</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Aslam Colony, Jauharabad, Distt Khushab, Punjab, Pakistan</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>WhatsApp / Phone</h4>
+                            <a href="https://wa.me/923034738592" target="_blank">+92 303 4738592</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email Address</h4>
+                            <a href="mailto:drwajidbilalkhan@gmail.com">drwajidbilalkhan@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-brands fa-facebook"></i>
+                        <div>
+                            <h4>Facebook Page</h4>
+                            <a href="https://facebook.com/khantechsol" target="_blank">facebook.com/khantechsol</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form that sends directly to WhatsApp -->
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">Send Inquiry via WhatsApp</h3>
+                    <form id="whatsappForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="businessType">Business Type</label>
+                            <input type="text" id="businessType" class="form-control" placeholder="e.g. Pharmacy, General Store, Supermarket" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="e.g. 0300-1234567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message / Requirements</label>
+                            <textarea id="message" class="form-control" placeholder="Write your requirements here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fa-brands fa-whatsapp"></i> Send to WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923034738592" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 <span>Khan Tech Sol</span>. All rights reserved. Managed by CEO <span>Wajid Ali Khan</span>.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & WhatsApp Form Redirect -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on link click (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-xmark');
+                hamburger.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Contact Form to WhatsApp redirect
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const businessType = document.getElementById('businessType').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const whatsappText = `Hello Khan Tech Sol,%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Business Type:* ${encodeURIComponent(businessType)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Message:* ${encodeURIComponent(message)}`;
+            
+            const whatsappUrl = `https://wa.me/923034738592?text=${whatsappText}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
